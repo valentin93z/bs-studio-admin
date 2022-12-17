@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { ICalendar } from "../../models/ICalendar";
 
 const initialState: ICalendar = {
     date: new Date().getTime(),
-}
+};
 
 export const calendarSlice = createSlice({
     name: 'calendar',
@@ -17,7 +17,7 @@ export const calendarSlice = createSlice({
             const date = state.date && new Date(state.date);
             state.date = date && date.setMonth(date.getMonth() - 1);
         },
-    }
+    },
 });
 
 export default calendarSlice.reducer;

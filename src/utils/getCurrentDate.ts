@@ -1,4 +1,4 @@
-export const getCurrentDate = (d: number | null) => {
+export const getCurrentDate = (d: number) => {
 
   if (!d) return;
 

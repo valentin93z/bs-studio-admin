@@ -1,21 +1,21 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { calendarSlice } from '../../app/calendarSlice/calendarSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { getCurrentDate } from '../../utils/getCurrentDate';
+import { monthNames } from './monthNames';
 
 const Calendar: FC = () => {
 
   const dispatch = useAppDispatch();
   const { date } = useAppSelector(state => state.calendarReducer);
 
-  console.log(date && new Date(date));
+  const year = date && new Date(date).getFullYear();
+  const monthName = date && monthNames[new Date(date).getMonth()];
 
   return (
     <div>
         <div>
           <button onClick={() => dispatch(calendarSlice.actions.decrementMonth())}>{'<'}</button>
-          {date && new Date(date).getMonth()}
-          {date && new Date(date).getFullYear()}
+          {monthName} {year}
           <button onClick={() => dispatch(calendarSlice.actions.incrementMonth())}>{'>'}</button>
         </div>
         <div></div>
