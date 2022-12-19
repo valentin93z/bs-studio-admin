@@ -1,0 +1,22 @@
+.calendar {
+    max-width: 600px;
+    margin: 50px auto 0 auto;
+}
+
+.daysOfWeek__list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.daysOfWeek__item {
+    list-style-type: none;
+}
+
+.dayOfMonth__list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.daysOfMonth__item {
+    list-style-type: none;
+}
