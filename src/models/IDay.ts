@@ -1,7 +1,6 @@
-import { IEvent } from "./IEvent";
-
 export interface IDay {
+    year: number;
+    month: number;
     dayOfMonth: number;
     dayOfWeek: number;
-    events: IEvent[];
 }

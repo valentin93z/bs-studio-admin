@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { daysNames } from './daysNames';
 import { monthNames } from './monthNames';
 import { getDaysOfMonth } from '../../utils/getDaysOfMonth';
+import { eventSlice } from '../../app/eventSlice/eventSlice';
 
 const Calendar: FC = () => {
 
@@ -18,6 +19,11 @@ const Calendar: FC = () => {
   useEffect(() => {
     dispatch(calendarSlice.actions.getDays(getDaysOfMonth(year, date && new Date(date).getMonth())));
   }, [date]);
+
+  const setDayValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(eventSlice.actions.setDate(e.target.value));
+  }
+
 
 
   return (
@@ -38,16 +44,18 @@ const Calendar: FC = () => {
             {days.map((day) =>
             <li
               className={classes.daysOfMonth__item}
-              key={day.dayOfMonth}
+              key={`${day.dayOfMonth}_${day.month}_${day.year}`}
               style={ day.dayOfMonth === 1 ? {gridColumn: day.dayOfWeek} : {}}
             >
               <input
                 className={classes.daysOfMonth__radio}
                 type="radio"
                 name="dayOfMonth"
-                id={String(day.dayOfMonth)}
+                id={`${day.dayOfMonth}_${day.month}_${day.year}`}
+                value={JSON.stringify(day)}
+                onChange={setDayValue}
               />
-              <label className={classes.daysOfMonth__label} htmlFor={String(day.dayOfMonth)}>{day.dayOfMonth}</label>
+              <label className={classes.daysOfMonth__label} htmlFor={`${day.dayOfMonth}_${day.month}_${day.year}`}>{day.dayOfMonth}</label>
             </li>)}
           </ul>
         </div>

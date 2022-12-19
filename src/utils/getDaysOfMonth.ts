@@ -7,9 +7,10 @@ export const getDaysOfMonth = (y: any, m: any) => {
 
     for (let i = 1; i <= count; i++) {
       const day = {
+        year: y,
+        month: m,
         dayOfMonth: i,
         dayOfWeek: getDayOfWeek(new Date(y, m, i).getDay()),
-        events: [],
       }
       days.push(day);
     }

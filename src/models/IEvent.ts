@@ -1,7 +1,16 @@
-export interface IEvent {
-    date: string;
-    time: string;
-    title: string;
-    description?: string;
-    price?: string;
+interface IEvent {
+    date: {
+        year: number;
+        month: number;
+        day: number;
+    };
+    time: {
+        hours: number;
+        minutes: number;
+    };
+}
+
+export interface IEvents {
+    events: IEvent[];
+    newEvent: IEvent;
 }

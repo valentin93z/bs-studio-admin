@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import calendarReducer from './calendarSlice/calendarSlice';
+import eventReducer from './eventSlice/eventSlice';
 
 export const store = configureStore({
   reducer: {
     calendarReducer,
+    eventReducer,
   },
 });
 
