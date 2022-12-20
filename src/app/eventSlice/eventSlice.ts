@@ -11,8 +11,8 @@ const initialState: IEvents = {
             day: 0,
         },
         time: {
-            hours: 0,
-            minutes: 0,
+            hours: '',
+            minutes: '',
         },
     },
 };
@@ -26,6 +26,12 @@ export const eventSlice = createSlice({
             state.newEvent.date.year = data.year;
             state.newEvent.date.month = data.month;
             state.newEvent.date.day = data.dayOfMonth;
+        },
+        setHours(state, action: PayloadAction<string>) {
+            state.newEvent.time.hours = action.payload;
+        },
+        setMinutes(state, action: PayloadAction<string>) {
+            state.newEvent.time.minutes = action.payload;
         },
     }
 });

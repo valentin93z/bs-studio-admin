@@ -5,8 +5,8 @@ interface IEvent {
         day: number;
     };
     time: {
-        hours: number;
-        minutes: number;
+        hours: string;
+        minutes: string;
     };
 }
 
