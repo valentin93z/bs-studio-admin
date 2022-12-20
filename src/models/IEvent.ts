@@ -1,4 +1,4 @@
-interface IEvent {
+export interface IEvent {
     date: {
         year: number;
         month: number;

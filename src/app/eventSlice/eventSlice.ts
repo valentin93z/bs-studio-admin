@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IEvents } from "../../models/IEvent";
+import { IEvent, IEvents } from "../../models/IEvent";
 import { IDay } from "../../models/IDay";
 
 const initialState: IEvents = {
@@ -32,6 +32,9 @@ export const eventSlice = createSlice({
         },
         setMinutes(state, action: PayloadAction<string>) {
             state.newEvent.time.minutes = action.payload;
+        },
+        setEvents(state, action: PayloadAction<IEvent[]>) {
+            state.events = action.payload;
         },
     }
 });
