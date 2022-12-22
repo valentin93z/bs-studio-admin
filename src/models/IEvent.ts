@@ -1,4 +1,5 @@
 export interface IEvent {
+    status: 'free' | 'ordered';
     date: {
         year: number;
         month: number;
@@ -8,6 +9,14 @@ export interface IEvent {
         hours: string;
         minutes: string;
     };
+    _id?: string;
+    client?: {
+        firstName?: string;
+        lastName?: string;
+        phone?: string;
+    },
+    service?: string;
+    master?: string;
 }
 
 export interface IEvents {

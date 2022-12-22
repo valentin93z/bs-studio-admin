@@ -31,7 +31,8 @@ const Times: FC = () => {
 
     const addEventRequest = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      axios.post('http://localhost:4444/events', {
+      axios.post('http://192.168.0.101:4444/events', {
+          status: newEvent.status,
           year: newEvent.date.year,
           month: newEvent.date.month,
           day: newEvent.date.day,
@@ -52,7 +53,7 @@ const Times: FC = () => {
     }
 
     const fetchEvents = async () => {
-      const response = await axios.get('http://localhost:4444/events');
+      const response = await axios.get('http://192.168.0.101:4444/events');
       dispatch(eventSlice.actions.setEvents(response.data));
     }
 

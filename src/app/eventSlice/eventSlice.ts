@@ -14,6 +14,7 @@ const initialState: IEvents = {
             hours: '',
             minutes: '',
         },
+        status: "free",
     },
 };
 
