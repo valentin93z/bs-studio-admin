@@ -17,13 +17,19 @@ const EventList: FC = () => {
           <p className={classes.event__time}>{event.time.hours}:{event.time.minutes}</p>
           <p className={classes.event__date}>{event.date.day}.{event.date.month}.{event.date.year}</p>
         </div>
-        <div className={classes.event__}>
-          <p className={classes.event__}>Имя</p>
-          <p className={classes.event__}>Фамилия</p>
-          <p className={classes.event__}>8-904-455-65-85</p>
-          <p className={classes.event__}>Наращивание ногтей</p>
-          <p className={classes.event__}>Мастер Алина</p>
-        </div>
+        {event.client && event.service && event.master
+          ?
+            <div className={classes.event__client}>
+              <p className={classes.event__firstName}>{event.client?.firstName}</p>
+              <p className={classes.event__lastName}>{event.client?.lastName}</p>
+              <p className={classes.event__clientPhone}>{event.client?.phone}</p>
+              <p className={classes.event__service}>{event.service}</p>
+              <p className={classes.event__master}>Мастер: {event.master}</p>
+            </div>
+          :
+            <div className={classes.event__free}>Свободное окно</div>
+        }
+        
       </li>)}
     </ul>
   )
