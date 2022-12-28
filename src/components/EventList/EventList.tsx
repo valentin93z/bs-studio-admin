@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { FC } from 'react';
 import { useAppSelector } from '../../app/hooks';
 import classes from './EventList.module.css';
@@ -6,13 +7,20 @@ const EventList: FC = () => {
 
   const { events, newEvent } = useAppSelector(state => state.eventReducer);
 
+  const removeEvent = async (e: React.MouseEvent<HTMLButtonElement>, idEvent: string | undefined) => {
+    e.preventDefault();
+    console.log(idEvent);
+    await axios.delete(`http://192.168.0.103:4444/events/${idEvent}`)
+    .then((res) => console.log(res.data))
+  }
+
   return (
     <ul className={classes.event__list}>
       {events.filter((event) =>
       event.date.year === newEvent.date.year &&
       event.date.month === newEvent.date.month &&
       event.date.day === newEvent.date.day).map((event) =>
-      <li className={classes.event__item} key={event._id}>
+      <li className={event.status === 'free' ? classes.event__item_free : classes.event__item_ordered} key={event._id}>
         <div className={classes.event__timing}>
           <p className={classes.event__time}>{event.time.hours}:{event.time.minutes}</p>
           <p className={classes.event__date}>{event.date.day}.{event.date.month}.{event.date.year}</p>
@@ -25,6 +33,7 @@ const EventList: FC = () => {
               <p className={classes.event__clientPhone}>{event.client?.phone}</p>
               <p className={classes.event__service}>{event.service}</p>
               <p className={classes.event__master}>Мастер: {event.master}</p>
+              <button onClick={(e) => removeEvent(e, event._id)}>Удалить</button>
             </div>
           :
             <div className={classes.event__free}>Свободное окно</div>

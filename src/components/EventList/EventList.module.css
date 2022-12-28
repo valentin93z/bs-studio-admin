@@ -7,12 +7,21 @@
     margin: 50px auto 0 auto;
 }
 
-.event__item {
+.event__item_free {
     width: 100%;
     display: flex;
     column-gap: 20px;
     list-style-type: none;
-    border-left: 3px solid #66bb6a;
+    border-left: 3px solid green;
+    padding: 0 20px;
+}
+
+.event__item_ordered {
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+    list-style-type: none;
+    border-left: 3px solid blue;
     padding: 0 20px;
 }
 

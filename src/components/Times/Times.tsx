@@ -9,7 +9,7 @@ import { timesData } from './timesData';
 const Times: FC = () => {
 
     const dispatch = useAppDispatch();
-    const { newEvent } = useAppSelector(state => state.eventReducer);
+    const { events, newEvent } = useAppSelector(state => state.eventReducer);
 
     const theme = createTheme({
         palette: {
@@ -54,7 +54,7 @@ const Times: FC = () => {
 
     useEffect(() => {
       fetchEvents();
-    }, []);
+    }, [events]);
 
   return (
     <ThemeProvider theme={theme}>

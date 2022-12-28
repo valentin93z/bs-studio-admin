@@ -6,9 +6,9 @@ const initialState: IEvents = {
     events: [],
     newEvent: {
         date: {
-            year: 0,
-            month: 0,
-            day: 0,
+            year: new Date().getFullYear(),
+            month: new Date().getMonth(),
+            day: new Date().getDate(),
         },
         time: {
             hours: '',
