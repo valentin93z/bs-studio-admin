@@ -36,3 +36,14 @@
   background: #e5e5e5;
   padding: 20px;
 }
+
+.panel_page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.panel_page__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: calc(100vh - 102px);
+}

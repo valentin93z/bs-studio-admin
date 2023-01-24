@@ -14,6 +14,7 @@ function App() {
             <Routes>
               {privateRoutes.map((route) =>
               <Route key={route.path} path={route.path} element={<route.element/>} />)}
+              <Route path='*' element={<Navigate to='/panel' replace />} />
             </Routes>
 
           :

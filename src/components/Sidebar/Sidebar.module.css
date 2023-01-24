@@ -1,0 +1,31 @@
+.sidebar {
+    color: #2C5282;
+    background: #EDF2F7;
+    padding: 70px;
+}
+
+.sidebar__list {
+    display: grid;
+    gap: 30px;
+}
+
+.sidebar__item {
+    list-style-type: none;
+}
+
+.sidebar__icon {
+    fill: #2C5282;
+}
+
+.sidebar__link {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2C5282;
+    text-decoration: none;
+}
