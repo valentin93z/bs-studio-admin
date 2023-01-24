@@ -1,0 +1,96 @@
+.login__form {
+    max-width: 512px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #2A4365;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 28px 38px;
+}
+
+.login__label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.login__label svg {
+    fill: #2A4365;
+}
+
+.login__label_text {
+    margin-left: 10px;
+}
+
+.login__input {
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EDF2F7;
+    padding: 15px 24px;
+}
+
+.login__password_field {
+    display: grid;
+    grid-template-columns: 80% 18%;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.login__show_password {
+    position: relative;
+    background-color: #EDF2F7;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login__show_password svg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: #2A4365;
+}
+
+.login__email .login__input {
+    margin-bottom: 20px;
+}
+
+.login__button {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
+    background: #2A4365;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 70px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 475px) {
+    
+    .login__form {
+        font-size: 16px;
+        padding: 28px 15px;
+    }
+
+    .login__button {
+        font-size: 16px;
+    }
+
+    .login__input {
+        font-size: 20px;
+        padding: 15px 12px;
+    }
+
+    .login__button {
+        padding: 15px 50px;
+    }
+
+}

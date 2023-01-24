@@ -1,13 +1,28 @@
-import Calendar from "./components/Calendar/Calendar";
-import EventList from "./components/EventList/EventList";
-import Times from "./components/Times/Times";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAppSelector } from "./app/hooks";
+import { privateRoutes, publicRoutes } from "./router/router";
 
 function App() {
+
+  const { isAuth } = useAppSelector(state => state.authSlice);
+
   return (
     <div className="App">
-      <Calendar />
-      <Times />
-      <EventList />
+      {
+        isAuth
+          ?
+            <Routes>
+              {privateRoutes.map((route) =>
+              <Route key={route.path} path={route.path} element={<route.element/>} />)}
+            </Routes>
+
+          :
+            <Routes>
+              {publicRoutes.map((route) =>
+              <Route key={route.path} path={route.path} element={<route.element/>} />)}
+              <Route path='*' element={<Navigate to='/login'replace />} />
+            </Routes>
+      }
     </div>
   );
 }

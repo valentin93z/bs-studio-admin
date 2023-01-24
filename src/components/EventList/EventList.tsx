@@ -7,6 +7,7 @@ const EventList: FC = () => {
 
   const { events, newEvent } = useAppSelector(state => state.eventReducer);
 
+
   const removeEvent = async (e: React.MouseEvent<HTMLButtonElement>, idEvent: string | undefined) => {
     e.preventDefault();
     console.log(idEvent);
@@ -34,6 +35,7 @@ const EventList: FC = () => {
               <p className={classes.event__service}>{event.service}</p>
               <p className={classes.event__master}>Мастер: {event.master}</p>
               <button onClick={(e) => removeEvent(e, event._id)}>Удалить</button>
+              <button>Изменить</button>
             </div>
           :
             <div className={classes.event__free}>Свободное окно</div>
