@@ -1,7 +1,15 @@
 .sidebar {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
     color: #2C5282;
     background: #EDF2F7;
     padding: 70px;
+}
+
+.sidebar__header {
+    font-weight: 400;
+    color: #4299E1;
+    margin-bottom: 30px;
 }
 
 .sidebar__list {
@@ -23,8 +31,6 @@
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
     font-weight: 400;
     color: #2C5282;
     text-decoration: none;

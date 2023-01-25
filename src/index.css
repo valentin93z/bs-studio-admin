@@ -45,5 +45,5 @@
 .panel_page__container {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: calc(100vh - 102px);
+  grid-template-rows: minmax(calc(100vh - 102px), auto);
 }

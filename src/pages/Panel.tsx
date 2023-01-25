@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import Main from '../components/Main/Main';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/Sidebar/Sidebar';
+import { privateRoutes } from '../router/router';
 
 const Panel: FC = () => {
   return (
@@ -9,7 +10,11 @@ const Panel: FC = () => {
         <Navbar />
         <div className='panel_page__container'>
             <Sidebar />
-            <Main />
+            <Routes>
+              {privateRoutes.map((route) =>
+              <Route key={route.path} path={route.path} element={<route.element/>} />)}
+              <Route path='*' element={<Navigate to='main' replace />} />
+            </Routes>
         </div>
     </div>
   )

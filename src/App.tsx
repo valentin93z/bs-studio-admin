@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAppSelector } from "./app/hooks";
-import { privateRoutes, publicRoutes } from "./router/router";
+import Login from "./pages/Login";
+import Panel from "./pages/Panel";
 
 function App() {
 
@@ -12,16 +13,13 @@ function App() {
         isAuth
           ?
             <Routes>
-              {privateRoutes.map((route) =>
-              <Route key={route.path} path={route.path} element={<route.element/>} />)}
-              <Route path='*' element={<Navigate to='/panel' replace />} />
+              <Route path='panel/*' element={<Panel/> } />
+              <Route path='*' element={<Navigate to='panel' replace />} />
             </Routes>
-
           :
             <Routes>
-              {publicRoutes.map((route) =>
-              <Route key={route.path} path={route.path} element={<route.element/>} />)}
-              <Route path='*' element={<Navigate to='/login'replace />} />
+              <Route path="login" element={<Login />} />
+              <Route path='*' element={<Navigate to='login'replace />} />
             </Routes>
       }
     </div>

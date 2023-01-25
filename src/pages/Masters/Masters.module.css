@@ -1,0 +1,37 @@
+.masters {
+    font-family: 'Roboto', sans-serif;
+    padding: 15px 40px 0 45px;
+}
+
+.masters__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 15px 0;
+}
+
+.masters__header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2C5282;
+}
+
+.masters__header_button {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFCFE;
+    background: #2A4365;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.masters__header_button svg {
+    fill: #FFFCFE;
+    margin-right: 10px;
+}
