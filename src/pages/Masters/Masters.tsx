@@ -1,7 +1,23 @@
-import React, { FC } from 'react';
+import axios from 'axios';
+import React, { FC, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { masterSlice } from '../../app/masterSlice/masterSlice';
 import classes from './Masters.module.css';
 
 const Masters: FC = () => {
+
+  const dispatch = useAppDispatch();
+  const { masters } = useAppSelector(state => state.masterSlice);
+
+  const fetchMasters = async () => {
+    const response = await axios.get('http://192.168.0.103:4444/masters');
+    dispatch(masterSlice.actions.setMasters(response.data));
+  }
+
+  useEffect(() => {
+    fetchMasters();
+  }, []);
+
   return (
     <section className={classes.masters}>
       <div className={classes.masters__head}>
@@ -11,6 +27,25 @@ const Masters: FC = () => {
           <span>Добавить</span>
         </button>
       </div>
+      <ul className={classes.masters__list}>
+        {masters.map(master =>
+          <li className={classes.masters__item} key={master._id}>
+            <div>
+              <h4 className={classes.masters__name}>{master.firstName} {master.lastName}</h4>
+              <p className={classes.masters__quality}>{master.quality}</p>
+            </div>
+            <div>
+              {master.status === 'active' && <div className={classes.masters__status_active}>Активный</div>}
+              {master.status === 'disable' && <div className={classes.masters__status_disable}>Неактивный</div>}
+            </div>
+            <div>
+              {master.description && <div>{master.description}</div>}
+            </div>
+            <div className={classes.masters__dots_menu}>
+              <svg width='24px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/></svg>
+            </div>
+          </li>)}
+      </ul>
     </section>
   )
 }

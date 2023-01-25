@@ -9,6 +9,7 @@
     align-items: center;
     border-bottom: 1px solid #E2E8F0;
     padding: 15px 0;
+    margin-bottom: 30px;
 }
 
 .masters__header {
@@ -34,4 +35,63 @@
 .masters__header_button svg {
     fill: #FFFCFE;
     margin-right: 10px;
+}
+
+.masters__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.masters__item {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(200px, auto) auto;
+    align-items: center;
+    gap: 100px;
+    background: #F7FAFC;
+    border-radius: 5px;
+    padding: 30px 50px 30px 30px;
+}
+
+.masters__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2A4365;
+    margin-bottom: 4px;
+}
+
+.masters__quality {
+    font-size: 14px;
+    font-weight: 400;
+    color: #A0AEC0;
+}
+
+.masters__status_active,
+.masters__status_disable {
+    width: 120px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 50px;
+}
+
+.masters__status_active {
+    color: #9AE6B4;
+    border: 2px solid #9AE6B4;
+}
+
+.masters__status_disable {
+    color: #FC8181;
+    border: 2px solid #FC8181;
+}
+
+.masters__dots_menu {
+    cursor: pointer;
+}
+
+.masters__dots_menu svg {
+    fill: #718096;
 }
