@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useAppSelector } from '../../app/hooks';
 import ModalAddNew from './masters/ModalAddNew';
+import ModalDelete from './masters/ModalDelete';
 
 const Modals: FC = () => {
 
@@ -9,6 +10,8 @@ const Modals: FC = () => {
   return (
     <>
       {mastersModal === 'new' && <ModalAddNew />}
+      {mastersModal === 'edit' && <ModalAddNew />}
+      {mastersModal === 'delete' && <ModalDelete />}
     </>
   )
 }

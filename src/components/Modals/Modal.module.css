@@ -163,7 +163,7 @@
 }
 
 .button__cancel,
-.button__add {
+.button__action {
     width: 100%;
     height: 100%;
     font-family: 'Roboto', sans-serif;
@@ -179,7 +179,7 @@
     background: inherit;
 }
 
-.button__add {
+.button__action {
     color: #ffffff;
     background: #2C5282;
 }

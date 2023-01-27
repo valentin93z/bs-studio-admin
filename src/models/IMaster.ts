@@ -1,5 +1,5 @@
 export interface IMaster {
-    _id: string;
+    _id: Object;
     firstName: string;
     lastName: string;
     status: string;

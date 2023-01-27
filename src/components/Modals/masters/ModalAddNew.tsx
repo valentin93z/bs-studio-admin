@@ -1,15 +1,30 @@
 import axios from 'axios';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { Params, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { interfaceSlice } from '../../../app/interfaceSlice/interfaceSlice';
 import { masterSlice } from '../../../app/masterSlice/masterSlice';
+import { IMaster } from '../../../models/IMaster';
 import { URL } from '../../../utils/consts';
 import classes from '../Modal.module.css';
 
 const ModalAddNew: FC = () => {
 
+    const params = useParams();
     const dispatch = useAppDispatch();
-    const { master } = useAppSelector(state => state.masterReducer);
+    const { mastersModal } = useAppSelector(state => state.interfaceReducer);
+    const { master, masters } = useAppSelector(state => state.masterReducer);
+
+    const closeModalWindow = () => {
+      dispatch(interfaceSlice.actions.setMastersModal('none'));
+      dispatch(masterSlice.actions.setReset());
+    }
+
+    const findMaster = (params: Readonly<Params<string>>) => {
+        const masterId = Object.values(params).toString().replace('masters/', '');
+        const masterData = masters.filter((item) => item._id === masterId);
+        dispatch(masterSlice.actions.loadMasterData(masterData[0]));
+    }
 
     const fetchMasters = async () => {
       const response = await axios.get(`${URL}/masters`);
@@ -26,14 +41,35 @@ const ModalAddNew: FC = () => {
         photoUrl: master.photoUrl,
         description: master.description,
       }).then(() => {
-        dispatch(masterSlice.actions.setReset());
-        dispatch(interfaceSlice.actions.setMastersModal('none'));
+        closeModalWindow();
         fetchMasters();
       }).catch((err) => console.log(err))
     }
 
+    const editMaster = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      axios.patch(`${URL}/masters`, {
+        id: master._id,
+        firstName: master.firstName,
+        lastName: master.lastName,
+        status: master.status,
+        quality: master.quality,
+        photoUrl: master.photoUrl,
+        description: master.description,
+      }).then(() => {
+        closeModalWindow();
+        fetchMasters();
+      }).catch((err) => console.log(err))
+    }
+
+    useEffect(() => {
+      if (mastersModal === 'edit') {
+        findMaster(params);
+      }
+    }, []);
+
   return (
-    <div className={classes.modal__root} onClick={() => dispatch(interfaceSlice.actions.setMastersModal('none'))}>
+    <div className={classes.modal__root} onClick={closeModalWindow}>
       <div className={classes.modal} onClick={(e) => e.stopPropagation()}>
         <form className={classes.modal__form}>
           <div className={classes.input__container}>
@@ -115,8 +151,9 @@ const ModalAddNew: FC = () => {
             </textarea>
           </div>
           <div className={classes.modal__buttons}>
-            <button className={classes.button__cancel} onClick={() => dispatch(interfaceSlice.actions.setMastersModal('none'))}>Отмена</button>
-            <button className={classes.button__add} onClick={addMaster}>Добавить</button>
+            <button className={classes.button__cancel} type='button' onClick={closeModalWindow}>Отмена</button>
+            {mastersModal === 'new' && <button className={classes.button__action} type='button' onClick={addMaster}>Добавить</button>}
+            {mastersModal === 'edit' && <button className={classes.button__action} type='button' onClick={editMaster}>Сохранить</button>}
           </div>
         </form>
       </div>

@@ -42,6 +42,15 @@ export const masterSlice = createSlice({
             state.master.status = 'active';
             state.master.quality = '';
             state.master.description = '';
+        },
+        loadMasterData(state, action: PayloadAction<IMaster>) {
+            state.master._id = action.payload._id;
+            state.master.firstName = action.payload.firstName;
+            state.master.lastName = action.payload.lastName;
+            state.master.status = action.payload.status;
+            state.master.quality = action.payload.quality;
+            state.master.photoUrl = action.payload.photoUrl;
+            state.master.description = action.payload.description;
         }
     },
 });
