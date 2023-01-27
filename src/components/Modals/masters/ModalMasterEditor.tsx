@@ -4,11 +4,10 @@ import { Params, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { interfaceSlice } from '../../../app/interfaceSlice/interfaceSlice';
 import { masterSlice } from '../../../app/masterSlice/masterSlice';
-import { IMaster } from '../../../models/IMaster';
 import { URL } from '../../../utils/consts';
 import classes from '../Modal.module.css';
 
-const ModalAddNew: FC = () => {
+const ModalMasterEditor: FC = () => {
 
     const params = useParams();
     const dispatch = useAppDispatch();
@@ -161,4 +160,4 @@ const ModalAddNew: FC = () => {
   )
 }
 
-export default ModalAddNew;
+export default ModalMasterEditor;

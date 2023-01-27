@@ -3,6 +3,7 @@ import calendarReducer from './calendarSlice/calendarSlice';
 import eventReducer from './eventSlice/eventSlice';
 import authReducer from './authSlice/authSlice';
 import masterReducer from './masterSlice/masterSlice';
+import serviceReducer from './serviceSlice/serviceSlice';
 import interfaceReducer from './interfaceSlice/interfaceSlice';
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     eventReducer,
     authReducer,
     masterReducer,
+    serviceReducer,
     interfaceReducer,
   },
 });

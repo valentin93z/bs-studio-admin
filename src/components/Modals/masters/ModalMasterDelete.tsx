@@ -7,7 +7,7 @@ import { masterSlice } from '../../../app/masterSlice/masterSlice';
 import { URL } from '../../../utils/consts';
 import classes from '../Modal.module.css';
 
-const ModalDelete: FC = () => {
+const ModalMasterDelete: FC = () => {
 
     const params = useParams();
     const dispatch = useAppDispatch();
@@ -31,7 +31,7 @@ const ModalDelete: FC = () => {
       }
 
   return (
-    <div className={classes.modal__root} onClick={() => dispatch(interfaceSlice.actions.setMastersModal('none'))}>
+    <div className={classes.modal__root} onClick={closeModalWindow}>
       <div className={classes.modal} onClick={(e) => e.stopPropagation()}>
         <div className={classes.modal__form}>
           <p className={classes.modal__label}>Удалить мастера из списка?</p>
@@ -45,4 +45,4 @@ const ModalDelete: FC = () => {
   )
 }
 
-export default ModalDelete;
+export default ModalMasterDelete;

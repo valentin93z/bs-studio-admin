@@ -9,6 +9,7 @@
     align-items: center;
     border-bottom: 1px solid #E2E8F0;
     padding: 15px 0;
+    margin-bottom: 30px;
 }
 
 .services__header {
@@ -34,4 +35,90 @@
 .services__header_button svg {
     fill: #FFFCFE;
     margin-right: 10px;
+}
+
+.services__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.services__item {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(auto, 250px) auto auto;
+    align-items: center;
+    gap: 100px;
+    background: #F7FAFC;
+    border-radius: 5px;
+    padding: 30px 50px 30px 30px;
+}
+
+.services__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2A4365;
+    margin-bottom: 4px;
+}
+
+.services__type {
+    font-size: 14px;
+    font-weight: 400;
+    color: #A0AEC0;
+}
+
+.services__status_active,
+.services__status_disable {
+    width: 120px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 50px;
+}
+
+.services__status_active {
+    color: #9AE6B4;
+    border: 2px solid #9AE6B4;
+}
+
+.services__status_disable {
+    color: #FC8181;
+    border: 2px solid #FC8181;
+}
+
+.services__price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2A4365;
+}
+
+.services__item_button {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}
+
+.services__button_edit,
+.services__button_delete {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.services__button_edit {
+    background: #2A4365;
+}
+
+.services__button_delete {
+    background: #FC8181;
+}
+
+.services__button_edit svg,
+.services__button_delete svg {
+    fill: #ffffff;
 }
