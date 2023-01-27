@@ -5,7 +5,7 @@ import Panel from "./pages/Panel";
 
 function App() {
 
-  const { isAuth } = useAppSelector(state => state.authSlice);
+  const { isAuth } = useAppSelector(state => state.authReducer);
 
   return (
     <div className="App">

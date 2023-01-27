@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { FC, useEffect } from 'react';
 import { eventSlice } from '../../app/eventSlice/eventSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { URL } from '../../utils/consts';
 import classes from './Times.module.css';
 import { timesData } from './timesData';
 
@@ -31,7 +32,7 @@ const Times: FC = () => {
 
     const addEventRequest = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      axios.post('http://192.168.0.103:4444/events', {
+      axios.post(`${URL}/events`, {
           status: newEvent.status,
           year: newEvent.date.year,
           month: newEvent.date.month,
@@ -48,7 +49,7 @@ const Times: FC = () => {
     }
 
     const fetchEvents = async () => {
-      const response = await axios.get('http://192.168.0.103:4444/all-events');
+      const response = await axios.get(`${URL}/all-events`);
       dispatch(eventSlice.actions.setEvents(response.data));
     }
 

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Modals from '../components/Modals/Modals';
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { privateRoutes } from '../router/router';
@@ -15,6 +16,7 @@ const Panel: FC = () => {
               <Route key={route.path} path={route.path} element={<route.element/>} />)}
               <Route path='*' element={<Navigate to='main' replace />} />
             </Routes>
+            <Modals/>
         </div>
     </div>
   )

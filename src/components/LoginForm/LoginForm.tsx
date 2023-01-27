@@ -6,7 +6,7 @@ import classes from './LoginForm.module.css';
 const LoginForm: FC = () => {
 
   const dispatch = useAppDispatch();
-  const { login, passwordIsVisible } = useAppSelector(state => state.authSlice);
+  const { login, passwordIsVisible } = useAppSelector(state => state.authReducer);
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(authSlice.actions.setEmail(e.target.value));

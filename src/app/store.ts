@@ -1,15 +1,17 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import calendarReducer from './calendarSlice/calendarSlice';
 import eventReducer from './eventSlice/eventSlice';
-import authSlice from './authSlice/authSlice';
-import masterSlice from './masterSlice/masterSlice';
+import authReducer from './authSlice/authSlice';
+import masterReducer from './masterSlice/masterSlice';
+import interfaceReducer from './interfaceSlice/interfaceSlice';
 
 export const store = configureStore({
   reducer: {
     calendarReducer,
     eventReducer,
-    authSlice,
-    masterSlice,
+    authReducer,
+    masterReducer,
+    interfaceReducer,
   },
 });
 

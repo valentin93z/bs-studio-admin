@@ -88,10 +88,31 @@
     border: 2px solid #FC8181;
 }
 
-.masters__dots_menu {
+.masters__item_button {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}
+
+.masters__button_edit,
+.masters__button_delete {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.masters__dots_menu svg {
-    fill: #718096;
+.masters__button_edit {
+    background: #2A4365;
+}
+
+.masters__button_delete {
+    background: #FC8181;
+}
+
+.masters__button_edit svg,
+.masters__button_delete svg {
+    fill: #ffffff;
 }
