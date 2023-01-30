@@ -4,6 +4,7 @@ import { IInterface, } from "../../models/IInterface";
 const initialState: IInterface = {
         mastersModal: "none",
         servicesModal: "none",
+        contactsModal: "none",
 }
 
 export const interfaceSlice = createSlice({
@@ -15,6 +16,9 @@ export const interfaceSlice = createSlice({
         },
         setServicesModal(state, action: PayloadAction<'none' | 'edit' | 'new' | 'delete'>) {
             state.servicesModal = action.payload;
+        },
+        setContactsModal(state, action: PayloadAction<'none' | 'edit'>) {
+            state.contactsModal = action.payload;
         },
     },
 });

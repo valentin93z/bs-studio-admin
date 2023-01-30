@@ -23,6 +23,12 @@
     gap: 20px;
 }
 
+.modal__form_two_column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
 .input__container {
     display: grid;
     grid-template-columns: 1fr;

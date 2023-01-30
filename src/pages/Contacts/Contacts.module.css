@@ -1,0 +1,62 @@
+.contacts {
+    font-family: 'Roboto', sans-serif;
+    padding: 15px 40px 0 45px;
+}
+
+.contacts__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.contacts__header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2C5282;
+}
+
+.contacts__header_button {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFCFE;
+    background: #2A4365;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.contacts__header_button svg {
+    fill: #FFFCFE;
+    margin-right: 10px;
+}
+
+.contacts__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.contacts__item {
+    list-style-type: none;
+    background: #F7FAFC;
+    border-radius: 5px;
+    padding: 30px 50px 30px 30px;
+}
+
+.contacts__item p:not(.contacts__item p:last-of-type) {
+    margin-bottom: 4px;
+}
+
+.contacts__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2A4365;
+    margin-bottom: 4px;
+}
