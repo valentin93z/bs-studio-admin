@@ -5,10 +5,11 @@ import ModalMasterDelete from './masters/ModalMasterDelete';
 import ModalServiceEditor from './services/ModalServiceEditor';
 import ModalServiceDelete from './services/ModalServiceDelete';
 import ModalContactEditor from './contacts/ModalContactEditor';
+import ModalGalleryNew from './gallery/ModalGalleryNew';
 
 const Modals: FC = () => {
 
-  const { mastersModal, servicesModal, contactsModal } = useAppSelector(state => state.interfaceReducer);
+  const { mastersModal, servicesModal, contactsModal, galleryModal } = useAppSelector(state => state.interfaceReducer);
 
   return (
     <>
@@ -19,6 +20,7 @@ const Modals: FC = () => {
       {servicesModal === 'edit' && <ModalServiceEditor />}
       {servicesModal === 'delete' && <ModalServiceDelete />}
       {contactsModal === 'edit' && <ModalContactEditor />}
+      {galleryModal === 'new' && <ModalGalleryNew />}
     </>
   )
 }

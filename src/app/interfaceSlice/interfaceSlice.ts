@@ -5,6 +5,7 @@ const initialState: IInterface = {
         mastersModal: "none",
         servicesModal: "none",
         contactsModal: "none",
+        galleryModal: "none",
 }
 
 export const interfaceSlice = createSlice({
@@ -19,6 +20,9 @@ export const interfaceSlice = createSlice({
         },
         setContactsModal(state, action: PayloadAction<'none' | 'edit'>) {
             state.contactsModal = action.payload;
+        },
+        setGalleryModal(state, action: PayloadAction<'none' | 'new' | 'delete'>) {
+            state.galleryModal = action.payload;
         },
     },
 });

@@ -4,6 +4,7 @@ import eventReducer from './eventSlice/eventSlice';
 import authReducer from './authSlice/authSlice';
 import masterReducer from './masterSlice/masterSlice';
 import serviceReducer from './serviceSlice/serviceSlice';
+import galleryReducer from './gallerySlice/gallerySlice';
 import contactReducer from './contactSlice/contactSlice';
 import interfaceReducer from './interfaceSlice/interfaceSlice';
 
@@ -14,10 +15,15 @@ export const store = configureStore({
     authReducer,
     masterReducer,
     serviceReducer,
+    galleryReducer,
     contactReducer,
     interfaceReducer,
   },
-});
+  middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+  });
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
