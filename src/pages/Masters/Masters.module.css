@@ -45,7 +45,7 @@
 
 .masters__item {
     display: grid;
-    grid-template-columns: 1fr auto minmax(200px, auto) auto;
+    grid-template-columns: minmax(200px, auto) auto minmax(200px, auto) auto;
     align-items: center;
     gap: 100px;
     background: #F7FAFC;
@@ -115,4 +115,12 @@
 .masters__button_edit svg,
 .masters__button_delete svg {
     fill: #ffffff;
+}
+
+
+@media screen and (max-width: 1400px) {
+    
+    .masters__item {
+        gap: 50px;
+    }
 }

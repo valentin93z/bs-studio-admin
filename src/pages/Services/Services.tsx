@@ -41,9 +41,7 @@ const Services: FC = () => {
             {service.status === 'active' && <div className={classes.services__status_active}>Активная</div>}
             {service.status === 'disable' && <div className={classes.services__status_disable}>Неактивная</div>}
           </div>
-          <div>
-            {service.description && <div>{service.description}</div>}
-          </div>
+          { service.description ? <div>{service.description}</div> : <div></div> }
           <div>
             <h4 className={classes.services__price}>{service.price} руб.</h4>
           </div>

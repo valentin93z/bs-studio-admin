@@ -45,7 +45,7 @@
 
 .services__item {
     display: grid;
-    grid-template-columns: 1fr auto minmax(auto, 250px) auto auto;
+    grid-template-columns: minmax(300px, 450px) auto 100px 90px auto;
     align-items: center;
     gap: 100px;
     background: #F7FAFC;
@@ -121,4 +121,19 @@
 .services__button_edit svg,
 .services__button_delete svg {
     fill: #ffffff;
+}
+
+
+@media screen and (max-width: 1530px) {
+    
+    .services__item {
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width: 1330px) {
+    
+    .services__item {
+        gap: 20px;
+    }
 }

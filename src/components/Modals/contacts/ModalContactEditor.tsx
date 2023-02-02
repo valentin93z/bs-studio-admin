@@ -18,7 +18,6 @@ const ModalContactEditor: FC = () => {
   const fetchContacts = async () => {
     const response = await axios.get(`${URL}/contacts`);
     dispatch(contactSlice.actions.setContacts(response.data[0]));
-    console.log(response.data);
   }
 
   const editContacts = (e: React.MouseEvent<HTMLButtonElement>) => {

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IGallery } from "../../models/IGallery";
+import { IFile, IGallery } from "../../models/IGallery";
 
 const initialState: IGallery = {
-    gallery: null,
+    gallery: [],
     selectedFiles: null,
 }
 
@@ -12,6 +12,9 @@ export const gallerySlice = createSlice({
     reducers: {
         setSelectedFiles(state, action: PayloadAction<FileList | null>) {
             state.selectedFiles = action.payload;
+        },
+        setGallery(state, action: PayloadAction<IFile[]>) {
+            state.gallery = action.payload;
         },
     },
 });

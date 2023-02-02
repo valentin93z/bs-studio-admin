@@ -13,22 +13,20 @@ const ModalMasterDelete: FC = () => {
     const dispatch = useAppDispatch();
 
     const closeModalWindow = () => {
-        dispatch(interfaceSlice.actions.setMastersModal('none'));
+      dispatch(interfaceSlice.actions.setMastersModal('none'));
     }
 
     const fetchMasters = async () => {
-        const response = await axios.get(`${URL}/masters`);
-        dispatch(masterSlice.actions.setMasters(response.data));
-      }
+      const response = await axios.get(`${URL}/masters`);
+      dispatch(masterSlice.actions.setMasters(response.data));
+    }
 
-    const deleteMaster = (params: Readonly<Params<string>>) => {
-        const masterId = Object.values(params).toString().replace('masters/', '');
-        axios.delete(`${URL}/masters`, { data: {id: masterId} })
-            .then(() => {
-                closeModalWindow();
-                fetchMasters();
-            }).catch((err) => console.log(err))
-      }
+    const deleteMaster = async (params: Readonly<Params<string>>) => {
+      const masterId = Object.values(params).toString().replace('masters/', '');
+      await axios.delete(`${URL}/masters`, { data: {id: masterId} })
+      closeModalWindow();
+      fetchMasters();
+    }
 
   return (
     <div className={classes.modal__root} onClick={closeModalWindow}>
