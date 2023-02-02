@@ -4,7 +4,12 @@ export interface IMaster {
     lastName: string;
     status: string;
     quality: string;
-    photoUrl?: string;
+    photo: {
+        selectedFile?: FileList | null;
+        filename?: string;
+        mimetype?: string;
+        size?: number;
+    }
     description?: string;
 }
 

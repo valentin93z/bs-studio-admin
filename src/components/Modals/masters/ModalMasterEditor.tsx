@@ -19,6 +19,10 @@ const ModalMasterEditor: FC = () => {
       dispatch(masterSlice.actions.setReset());
     }
 
+    const attachFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(masterSlice.actions.setSelectedFile(e.target.files));
+    }
+
     const findMaster = (params: Readonly<Params<string>>) => {
         const masterId = Object.values(params).toString().replace('masters/', '');
         const masterData = masters.filter((item) => item._id === masterId);
@@ -37,8 +41,15 @@ const ModalMasterEditor: FC = () => {
         lastName: master.lastName,
         status: master.status,
         quality: master.quality,
-        photoUrl: master.photoUrl,
         description: master.description,
+      }).then((res) => {
+        if (!master.photo?.selectedFile) {
+          return;
+        }
+        const masterId = res.data;
+        const formData = new FormData();
+        formData.append('photo', master.photo.selectedFile[0]);
+        axios.post(`${URL}/masters/${masterId}`, formData);
       }).then(() => {
         closeModalWindow();
         fetchMasters();
@@ -53,7 +64,6 @@ const ModalMasterEditor: FC = () => {
         lastName: master.lastName,
         status: master.status,
         quality: master.quality,
-        photoUrl: master.photoUrl,
         description: master.description,
       }).then(() => {
         closeModalWindow();
@@ -136,7 +146,12 @@ const ModalMasterEditor: FC = () => {
               <svg width='12px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24z"/></svg>
               <span>Загрузить</span>
             </label>
-            <input className={classes.modal__upload} type="file" id="photoUrl" />
+            <input
+              className={classes.modal__upload}
+              type="file"
+              id="photoUrl"
+              onChange={attachFile}
+            />
           </div>
           <div className={classes.textarea__container}>
             <label className={classes.modal__label} htmlFor='description'>Дополнительная информация</label>

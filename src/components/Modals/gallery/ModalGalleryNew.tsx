@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { gallerySlice } from '../../../app/gallerySlice/gallerySlice';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { interfaceSlice } from '../../../app/interfaceSlice/interfaceSlice';

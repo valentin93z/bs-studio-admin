@@ -9,7 +9,12 @@ const initialState: IMasters = {
         lastName: '',
         status: 'active',
         quality: '',
-        photoUrl: '',
+        photo: {
+            selectedFile: null,
+            filename: '',
+            mimetype: '',
+            size: 0,
+        },
         description: '',
     }
 };
@@ -49,9 +54,11 @@ export const masterSlice = createSlice({
             state.master.lastName = action.payload.lastName;
             state.master.status = action.payload.status;
             state.master.quality = action.payload.quality;
-            state.master.photoUrl = action.payload.photoUrl;
             state.master.description = action.payload.description;
-        }
+        },
+        setSelectedFile(state, action: PayloadAction<FileList | null>) {
+            state.master.photo.selectedFile = action.payload;
+        },
     },
 });
 
