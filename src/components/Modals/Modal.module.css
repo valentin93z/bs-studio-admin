@@ -10,7 +10,7 @@
 }
 
 .modal {
-    min-width: 400px;
+    width: 400px;
     font-family: 'Roboto', sans-serif;
     background: #ffffff;
     border-radius: 10px;
@@ -102,6 +102,11 @@
     background: #2C5282;
 }
 
+.upload__master_photo_container {
+    display: grid;
+    gap: 10px;
+}
+
 .upload__container {
     position: relative;
     display: grid;
@@ -118,6 +123,38 @@
     color: #2C5282;
 }
 
+.upload__status {
+    color: #222222;
+    background: #EDF2F7;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.upload__status_container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    word-wrap: break-word;
+}
+
+.upload__status_delete {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload__status_delete svg {
+    display: block;
+    fill: white;
+}
+
 .upload__button {
     display: grid;
     grid-template-columns: auto auto;
@@ -131,7 +168,21 @@
     cursor: pointer;
 }
 
-.upload__button svg {
+.upload__button_disabled {
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #ffffff;
+    background: #9AE6B4;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.upload__button svg,
+.upload__button_disabled svg {
     fill: #ffffff;
 }
 

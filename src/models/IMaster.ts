@@ -6,9 +6,9 @@ export interface IMaster {
     quality: string;
     photo: {
         selectedFile?: FileList | null;
-        filename?: string;
-        mimetype?: string;
-        size?: number;
+        filename: string;
+        mimetype: string;
+        size: number;
     }
     description?: string;
 }

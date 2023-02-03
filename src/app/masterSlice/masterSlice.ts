@@ -4,7 +4,7 @@ import { IMaster, IMasters } from "../../models/IMaster";
 const initialState: IMasters = {
     masters: [],
     master: {
-        _id: '',
+        _id: {},
         firstName: '',
         lastName: '',
         status: 'active',
@@ -38,6 +38,9 @@ export const masterSlice = createSlice({
         setQuality(state, action: PayloadAction<string>) {
             state.master.quality = action.payload;
         },
+        setSelectedFile(state, action: PayloadAction<FileList | null>) {
+            state.master.photo.selectedFile = action.payload;
+        },
         setDescription(state, action: PayloadAction<string>) {
             state.master.description = action.payload;
         },
@@ -46,7 +49,17 @@ export const masterSlice = createSlice({
             state.master.lastName = '';
             state.master.status = 'active';
             state.master.quality = '';
+            state.master.photo.selectedFile = null;
+            state.master.photo.filename = '';
+            state.master.photo.mimetype = '';
+            state.master.photo.size = 0;
             state.master.description = '';
+        },
+        setResetPhotoInfo(state) {
+            state.master.photo.selectedFile = null;
+            state.master.photo.filename = '';
+            state.master.photo.mimetype = '';
+            state.master.photo.size = 0;
         },
         loadMasterData(state, action: PayloadAction<IMaster>) {
             state.master._id = action.payload._id;
@@ -54,11 +67,12 @@ export const masterSlice = createSlice({
             state.master.lastName = action.payload.lastName;
             state.master.status = action.payload.status;
             state.master.quality = action.payload.quality;
+            state.master.photo.filename = action.payload.photo?.filename;
+            state.master.photo.mimetype = action.payload.photo?.mimetype;
+            state.master.photo.size = action.payload.photo?.size;
             state.master.description = action.payload.description;
         },
-        setSelectedFile(state, action: PayloadAction<FileList | null>) {
-            state.master.photo.selectedFile = action.payload;
-        },
+
     },
 });
 
