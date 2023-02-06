@@ -2,6 +2,7 @@
     max-width: 600px;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 400;
+    color: #2C5282;
     margin: 50px auto 0 auto;
 }
 
@@ -16,19 +17,21 @@
     font-family: 'Fira Sans', sans-serif;
     font-size: 32px;
     font-weight: 300;
+    color: #2C5282;
     background-color: transparent;
     border: none;
+    border-radius: 5px;
     padding: 0 30px;
     cursor: pointer;
 }
 
 .months__button:hover {
-    background: var(--secondary-color);
+    background: #EDF2F7;
     transition: 0.1s;
 }
 
 .months__button:active {
-    background: var(--primary-color);
+    background: rgba(66, 153, 225, 0.5);
 }
 
 .daysOfWeek__list {
@@ -66,15 +69,16 @@
     text-align: center;
     padding: 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .daysOfMonth__label:hover {
-    background: var(--secondary-color);
+    background: #EDF2F7;
     transition: 0.5s;
 }
 
 .daysOfMonth__radio:checked ~ .daysOfMonth__label {
-    background: var(--primary-color);
+    background: rgba(66, 153, 225, 0.5);
 }
 
 .event__status {

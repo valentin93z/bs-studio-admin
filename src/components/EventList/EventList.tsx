@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { FC } from 'react';
 import { useAppSelector } from '../../app/hooks';
+import { URL } from '../../utils/consts';
 import classes from './EventList.module.css';
 
 const EventList: FC = () => {
@@ -11,7 +12,7 @@ const EventList: FC = () => {
   const removeEvent = async (e: React.MouseEvent<HTMLButtonElement>, idEvent: string | undefined) => {
     e.preventDefault();
     console.log(idEvent);
-    await axios.delete(`http://192.168.0.103:4444/events/${idEvent}`)
+    await axios.delete(`${URL}/events/${idEvent}`)
     .then((res) => console.log(res.data))
   }
 

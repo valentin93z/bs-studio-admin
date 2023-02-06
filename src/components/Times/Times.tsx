@@ -15,7 +15,7 @@ const Times: FC = () => {
     const theme = createTheme({
         palette: {
           primary: {
-            main: '#968981',
+            main: '#2C5282',
           },
         },
       });
@@ -61,7 +61,7 @@ const Times: FC = () => {
     <ThemeProvider theme={theme}>
       <div className={classes.times}>
         <div>
-          <FormControl variant='standard' sx={{ m: 1, minWidth: 120 }}>
+          <FormControl variant='outlined' size='small' sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="hours-label">Часы</InputLabel>
             <Select
               labelId="hours-label"
@@ -75,7 +75,7 @@ const Times: FC = () => {
               <MenuItem key={item} value={item}>{item}</MenuItem>)}
             </Select>
           </FormControl>
-          <FormControl variant='standard' sx={{ m: 1, minWidth: 120 }}>
+          <FormControl variant='outlined' size='small' sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="minutes-label">Минуты</InputLabel>
             <Select
               labelId="minutes-label"
